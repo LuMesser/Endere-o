@@ -14,7 +14,7 @@ import modelo.Endereco;
  */
 public class EnderecoDao {
     public static boolean alterar(Endereco objeto) {
-        String sql = "UPDATE produto SET bairro = ?, complemento = ? logradouro = ? WHERE codigo=?";
+        String sql = "UPDATE endereco SET bairro = ?, complemento = ? logradouro = ? WHERE codigo=?";
         try {
             PreparedStatement ps = conexao.Conexao.getConexao().prepareStatement(sql);
             ps.setString(1, objeto.getBairro()); 

@@ -16,9 +16,26 @@ import tela.manutencao.ManutencaoEndereco;
  * @author Administrador
  */
 public class ControladorEndereco {
+    
+    public static void alterar(ManutencaoEndereco man){
+        Endereco objeto = new Endereco();
+        //definir todos os atributos
+        objeto.setCodigo(Integer.parseInt(man.jtfCódigo.getText()));
+        objeto.setBairro(man.jtfBairro.getText());
+        objeto.setComplemento(man.jtfComplemento.getText());
+        objeto.setLogradouro(man.jtfLogradouro.getText());
+        
+        boolean resultado = EnderecoDao.alterar(objeto);
+        if (resultado) {
+            JOptionPane.showMessageDialog(null, "Alterado com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro!");
+        }
+    }
 
     public static void inserir(ManutencaoEndereco man){
         Endereco objeto = new Endereco();
+        objeto.setCodigo(Integer.parseInt(man.jtfCódigo.getText()));
         objeto.setBairro(man.jtfBairro.getText());
         objeto.setComplemento(man.jtfComplemento.getText());
         objeto.setLogradouro(man.jtfLogradouro.getText());
