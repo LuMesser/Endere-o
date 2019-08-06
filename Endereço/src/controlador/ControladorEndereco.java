@@ -47,5 +47,17 @@ public class ControladorEndereco {
             JOptionPane.showMessageDialog(null, "Erro!");
         }
 }
+
+    public static void excluir(ManutencaoEndereco man){
+        Endereco objeto = new Endereco();
+        objeto.setCodigo(Integer.parseInt(man.jtfCódigo.getText())); //só precisa definir a chave primeira
+        
+        boolean resultado = EnderecoDao.excluir(objeto);
+        if (resultado) {
+            JOptionPane.showMessageDialog(null, "Excluído com sucesso!");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro!");
+        }
+    }
     
 }
